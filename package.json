@@ -1,0 +1,23 @@
+{
+  "name": "projeto-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "test": "cypress run",
+    "test:chrome": "cypress run --browser chrome",
+    "test:headless": "cypress run --headless",
+    "test:ci": "cypress run --headless --browser chrome",
+    "test:elements": "cypress run --spec 'cypress/e2e/elements/*.cy.js'",
+    "test:alerts": "cypress run --spec 'cypress/e2e/alertframeswindows/*.cy.js'",
+    "test:forms": "cypress run --spec 'cypress/e2e/forms/*.cy.js'",
+    "cy:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.11.0"
+  }
+}
