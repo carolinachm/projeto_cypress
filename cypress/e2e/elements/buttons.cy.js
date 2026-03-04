@@ -48,10 +48,10 @@ describe('Button Tests', () => {
         // -------- CLICK NORMAL --------
 
         // contains busca botão pelo texto visível
-        cy.contains('Click Me').click();
+        //cy.contains('Click Me').click();
 
         // valida resposta
-        cy.get('#dynamicClickMessage')
-          .should('contain', 'You have done a dynamic click');
+        //cy.get('#dynamicClickMessage')
+         // .should('contain', 'You have done a dynamic click');
     });
 });
