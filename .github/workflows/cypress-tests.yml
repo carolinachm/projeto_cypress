@@ -32,7 +32,6 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: ${{ matrix.browser }}
-          headless: true
           spec: |
             cypress/e2e/**/*.cy.js
         continue-on-error: false
