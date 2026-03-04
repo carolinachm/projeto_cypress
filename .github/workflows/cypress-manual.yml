@@ -1,0 +1,60 @@
+name: Execução Manual de Testes
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec:
+        description: 'Especificação dos testes a executar'
+        required: true
+        default: 'cypress/e2e/**/*.cy.js'
+        type: choice
+        options:
+          - 'cypress/e2e/**/*.cy.js'
+          - 'cypress/e2e/elements/*.cy.js'
+          - 'cypress/e2e/alertframeswindows/*.cy.js'
+          - 'cypress/e2e/forms/*.cy.js'
+      browser:
+        description: 'Navegador para execução'
+        required: true
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          #- electron
+          #- firefox
+          #- edge
+
+jobs:
+  manual-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar testes selecionados
+        uses: cypress-io/github-action@v6
+        with:
+          browser: ${{ github.event.inputs.browser }}
+          headless: true
+          spec: ${{ github.event.inputs.spec }}
+        continue-on-error: true
+
+      - name: Upload de resultados
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resultados-manuais-${{ github.run_id }}
+          path: |
+            cypress/evidencias/
+            cypress/downloads/
+          retention-days: 30
