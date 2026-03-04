@@ -25,12 +25,13 @@ describe('Broken Links Tests', () => {
 
         // Verifica se o elemento com id "brokenLink"
         // possui atributo href com valor esperado
-        cy.get('#brokenLink')
-          .should('have.attr', 'href', 'https://demoqa.com');
+        cy.get('[href="http://demoqa.com"]').click();
+        cy.url().should('eq', 'https://demoqa.com/');
+          //.should('have.attr', 'href', 'https://demoqa.com');
 
         // remove atributo target
         // isso impede abrir nova aba (Cypress não suporta múltiplas abas)
-        cy.get('#brokenLink')
+        cy.get('[href="http://the-internet.herokuapp.com/status_codes/500"]')
           .invoke('removeAttr', 'target')
           .click();
 
