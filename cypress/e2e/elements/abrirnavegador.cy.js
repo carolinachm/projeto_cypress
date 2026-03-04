@@ -6,8 +6,7 @@ describe('Home DemoQA', () => {
   // O texto descreve exatamente o que o teste valida
   it('Valida que a home carregou', () => {
 
-    // cy.task para log customizado
-    cy.task('log', 'Iniciando teste da Home DemoQA');
+    
 
     // cy.visit()
     // Comando que abre uma página no navegador controlado pelo Cypress
@@ -23,10 +22,7 @@ describe('Home DemoQA', () => {
       // Verifica se a condição esperada é verdadeira
       // "be.visible" = valida que o elemento está visível na tela
       .should('be.visible')
-      .then(() => {
-        // cy.task para log customizado indicando sucesso
-        cy.task('log', 'Elemento "Elements" está visível - teste OK');
-      });
+     
 
   })
 
