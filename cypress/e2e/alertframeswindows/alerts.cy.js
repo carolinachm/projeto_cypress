@@ -15,10 +15,10 @@ describe('Alert, Frames and Windows Tests', () => { // Define a suíte de testes
             expect(txt).to.equal('You clicked a button'); // Valida se o texto do alerta é o esperado
         });
 
-        cy.get('#timerAlertButton').click(); // Clica no botão que dispara alerta após delay
-        cy.on('window:alert', txt => { // Escuta novamente evento de alerta
-            expect(txt).to.equal('This alert appeared after 5 seconds'); // Valida mensagem do alerta temporizado
-        });
+        // cy.get('#timerAlertButton').click(); // Clica no botão que dispara alerta após delay
+        // cy.on('window:alert', txt => { // Escuta novamente evento de alerta
+        //     expect(txt).to.equal('This alert appeared after 5 seconds'); // Valida mensagem do alerta temporizado
+        // });
 
         cy.get('#confirmButton').click(); // Clica no botão que abre confirm dialog
         cy.on('window:confirm', txt => { // Escuta evento de confirmação

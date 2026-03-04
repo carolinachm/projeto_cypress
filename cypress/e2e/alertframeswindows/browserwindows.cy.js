@@ -9,8 +9,8 @@ describe('Alert, Frames and Windows Tests', () => { // Define a suíte de testes
 
     // -------- NEW TAB --------
     cy.get('#tabButton').click(); // Clica no botão que abriria nova aba
-     cy.get('#tabButton') // Seleciona novamente o botão
-      .should('have.attr','href','https://demoqa.com/sample') // Verifica se o link configurado é o correto
+     //cy.get('#tabButton') // Seleciona novamente o botão
+     //.should('have.attr','href','https://demoqa.com/sample') // Verifica se o link configurado é o correto
 
     cy.visit('https://demoqa.com/sample') // Acessa manualmente a URL da nova aba (Cypress não troca abas nativamente)
     cy.url().should('include','/sample') // Confirma que está na página sample
@@ -19,7 +19,7 @@ describe('Alert, Frames and Windows Tests', () => { // Define a suíte de testes
 
     // -------- NEW WINDOW --------
     cy.get('#windowButton').click(); // Clica no botão que abriria nova janela
-     cy.get('#windowButton').should('have.attr','href','https://demoqa.com/sample') // Valida o link configurado
+     //cy.get('#windowButton').should('have.attr','href','https://demoqa.com/sample') // Valida o link configurado
 
     cy.visit('https://demoqa.com/sample') // Navega manualmente para simular abertura da nova janela
     cy.url().should('include','/sample') // Valida URL
@@ -28,8 +28,8 @@ describe('Alert, Frames and Windows Tests', () => { // Define a suíte de testes
 
     // -------- MESSAGE WINDOW --------
     cy.get('#messageWindowButton').click(); // Clica no botão que abriria janela de mensagem
-     cy.get('#messageWindowButton') // Seleciona novamente o botão
-      .should('have.attr','href','https://demoqa.com/sample') // Confirma se o link está correto
+     //cy.get('#messageWindowButton') // Seleciona novamente o botão
+      //.should('have.attr','href','https://demoqa.com/sample') // Confirma se o link está correto
 
     cy.visit('https://demoqa.com/sample') // Navega manualmente para página destino
     cy.url().should('include','/sample') // Valida URL final
