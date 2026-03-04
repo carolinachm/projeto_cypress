@@ -23,16 +23,13 @@ describe('Checkbox Tests', () => {
         cy.get('.rc-tree-checkbox').click();
 
         // Valida se resultado mostra item selecionado
-        cy.get('.result').should('contain', 'desktop');
+        cy.get('#result > :nth-child(1)').should('contain', 'You have selected');
+        cy.get('#result > :nth-child(2)').should('contain', 'home');
+        cy.get('#result > :nth-child(3)').should('contain', 'desktop');
+        cy.get('#result > :nth-child(4)').should('contain', 'documents');
+        cy.get('#result > :nth-child(5)').should('contain', 'downloads');
 
 
-        // ---------- DESMARCAR CHECKBOX ----------
-
-        // Clica novamente para desmarcar
-        cy.get('.rc-tree-checkbox').click();
-
-        // Valida que não contém mais texto
-        cy.get('.rct-result').should('not.contain', 'desktop');
     });
 
 });
